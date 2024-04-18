@@ -10,4 +10,4 @@ parser.add_argument("--train_epoch", type=int, default=1, help="训练的周期"
 parser.add_argument("--lr", type=int, default=0.001, help="学习率")
 parser.add_argument("--train_batchsize", type=int, default=16, help="训练的batchsize大小")
 parser.add_argument("--test_batchsize", type=int, default=11, help="测试的batchsize大小")
-parser.add_argument("--output", type=str, default="/results", help="用于存放结果的路径")
+parser.add_argument("--output", type=str, default=r"D:\Users\12150\PycharmProjects\DeepStO2\tools\results", help="用于存放结果的路径")

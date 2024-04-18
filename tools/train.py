@@ -77,14 +77,14 @@ def train(agrs):
                 eval_result = (np.sum(labels == preds)) / len(labels)
                 print("第{}个被试的第{}周期下的预测结果为{}".format(p + 1, k + 1, eval_result))
                 # 在一个epoch下，如果acc值大于当前的，则保存该模型
-                filename = str(p + 1) + "被试验证的" + str(k + 1) + "周期" + ".pth"
-                save_path = os.path.join(args.outpath, filename)
-                os.makedirs(save_path, exist_ok=True)
+                filename = str(p + 1) + str(k+1) + ".pth"
+                save_path = os.path.join(args.output, filename)
+                # os.makedirs(save_path, exist_ok=True)
                 # model.module用于判断是否使用分布式的
                 model_to_save = (model.module if hasattr(model, "module") else model)
                 if eval_result > temp_max:
                     temp_max = eval_result
-                    torch.save(model_to_save, save_path)
+                    torch.save(model_to_save.state_dict(), save_path)
 
         print("第{}个被试作为预测情况下，所有训练的最大值为{}".format(p + 1, temp_max))
         averageAll += temp_max
