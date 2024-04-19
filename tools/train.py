@@ -77,7 +77,7 @@ def train(agrs):
                 eval_result = (np.sum(labels == preds)) / len(labels)
                 print("第{}个被试的第{}周期下的预测结果为{}".format(p + 1, k + 1, eval_result))
                 # 在一个epoch下，如果acc值大于当前的，则保存该模型
-                filename = str(p + 1) + str(k+1) + ".pth"
+                filename = str(p + 1) + str(k + 1) + ".pth"
                 save_path = os.path.join(args.output, filename)
                 # os.makedirs(save_path, exist_ok=True)
                 # model.module用于判断是否使用分布式的
