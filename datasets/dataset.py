@@ -3,16 +3,25 @@ import os
 import numpy as np
 from torch.utils.data import Dataset
 from scipy.io import loadmat, savemat
-# import datasets.transformer as p
-import datasets.transformer as transform
-from math import isnan
-import h5py
-
+import torchvision.transforms as transforms
 
 class StO2Dataset(Dataset):
 
-    # 数据集初始化操作
     def __init__(self, root_path, train=True, test_subnum=0, transform=None):
+        # 初始化参数
+        self.root_path = root_path
+        self.train = train
+        self.test_subnum = test_subnum
+
+        # 定义默认转换流程
+        if transform is None:
+            self.transform = transforms.Compose([
+                transforms.ToPILImage(),
+                transforms.Resize((224, 224)),
+                transforms.ToTensor()
+            ])
+        else:
+            self.transform = transform
 
         self.root_path = root_path
         self.train = train
@@ -63,7 +72,7 @@ class StO2Dataset(Dataset):
         # print("mat_path_truth_baseline的长度为： ", len(dir_mat_truth_baseline))
 
         # 对欺骗和欺骗基线下的所有mat矩阵进行处理
-        for m in range(len(dir_mat_deception_baseline) - 1):
+        for m in range(len(dir_mat_deception_baseline)):
             # 对每一个文件夹下面所有数据处理
             deception_path = path_deception + "/" + dir_mat_deception[m]
             deception_baseline_path = path_deception_baseline + "/" + dir_mat_deception_baseline[m]
@@ -73,7 +82,7 @@ class StO2Dataset(Dataset):
             self.deception_label.append([1])
 
         # 对诚实和诚实基线下的所有mat矩阵进行处理
-        for m in range(len(dir_mat_truth_baseline) - 1):
+        for m in range(len(dir_mat_truth_baseline)):
             # 对每一个文件夹下面所有数据处理
             truth_path = path_truth + "/" + dir_mat_truth[m]
             truth_baseline_path = path_truth_baseline + "/" + dir_mat_truth_baseline[m]
@@ -110,60 +119,97 @@ class StO2Dataset(Dataset):
                     self.path_all_test.append(path)
                     self.path_baseline_all_test.append(self.path_baseline_all_temp[i])
                     self.label_all_test.append(self.label_all_temp[i])
+        # 预拟合Scaler（仅在训练模式）
+        # if train and not os.path.exists(self.scaler_path):
+        #     self._fit_scaler()
 
-    # 获取每一个元素
     def __getitem__(self, item):
-
+        # 加载数据
         if self.train:
-            with h5py.File(self.path_all_train[item], 'r') as mat_file:
-                mat_value = mat_file['newJregistered'][:]
-            with h5py.File(self.path_baseline_all_train[item], 'r') as mat_baseline_file:
-                mat_baseline_value = mat_baseline_file['newJregistered'][:]
+            # 加载三个区域的数据
+            data_paths = self.path_all_train[item * 3: item * 3 + 3]
+            baseline_paths = self.path_baseline_all_train[item * 3: item * 3 + 3]
+            labels = self.label_all_train[item * 3]
 
-            temp_value = mat_value - mat_baseline_value
-            label = self.label_all_train[item]
         else:
-            with h5py.File(self.path_all_test[item], 'r') as mat_file:
-                mat_value = mat_file['newJregistered'][:]
-            with h5py.File(self.path_baseline_all_test[item], 'r') as mat_baseline_file:
-                mat_baseline_value = mat_baseline_file['newJregistered'][:]
+            data_paths = self.path_all_test[item * 3: item * 3 + 3]
+            baseline_paths = self.path_baseline_all_test[item * 3: item * 3 + 3]
+            labels = self.label_all_test[item * 3]
 
-            temp_value = mat_value - mat_baseline_value
-            label = self.label_all_test[item]
+        region_tensors = []
+        for data_path, baseline_path in zip(data_paths, baseline_paths):
+            region = self.load_and_process_region(data_path, baseline_path)
+            region_tensor = torch.from_numpy(region).float()
+            region_tensors.append(region_tensor)
 
-        # 去除nan值
-        temp = 0
-        weight = temp_value.shape[0]
-        height = temp_value.shape[1]
-        for i in range(0, weight):
-            for j in range(0, height):
-                # 这个地方进行RIO区域StO2数量统计时需要重新考虑
-                temp += 1
-                # 是nan值，则不进行相加
-                if isnan(temp_value[i, j]):
-                    temp_value[i, j] = 0
+        label = torch.as_tensor(labels, dtype=torch.long).squeeze()
 
-        # 对原始的输入数据做数据增强以及转变为增量
+        return region_tensors, label
+
+    # 加载区域数据
+    def load_and_process_region(self, data_path, baseline_path):
+
+        # 读取npy文件
+        data = np.load(data_path)
+        baseline = np.load(baseline_path)
+
+        # 插值
+        temp_value = data - baseline
+
+        # 替换NaN值为全局最小值 （没有NaN值了）
+        global_min = np.nanmin(temp_value)
+        temp_value[np.isnan(temp_value)] = global_min
+
+        # 归一化 （使用训练拟合的Scalar）
+        temp_value = temp_value.astype(np.float32)
+
+        # 应用 transform
         if self.transform:
+            # temp_value = (temp_value * 255).astype(np.uint8)  # 缩放到 0~255
             temp_value = self.transform(temp_value)
 
-        # 标签转tensor，且大小为N
-        label = torch.as_tensor(label, dtype=torch.long)
+        return temp_value
 
-        return temp_value, label
-
-    # 数据集长度
+    # 返回样本量数据
     def __len__(self):
 
         if self.train:
-            return len(self.path_all_train)
+            return len(self.path_all_train) // 3
         else:
-            return len(self.path_all_test)
+            return len(self.path_all_test) // 3
+
 
 if __name__ == "__main__":
+    # 定义转换流程
+    data_transform = transforms.Compose([
+        transforms.ToPILImage(),
+        transforms.Resize((224, 224)),
+        transforms.ToTensor()
+    ])
 
-    root_path = r"D:\Users\12150\PycharmProjects\data-sub1-sub14-all\hd5"
-    clsdataset = StO2Dataset(root_path, train=False, test_subnum=1, transform=transform.transform())
-    print("len(clsdataset) = ", len(clsdataset))
-    for img, label in clsdataset:
-        print("img.shape = {}; label = {}".format(img.shape, label))
+    # 创建数据集实例
+    root_path = r"D:\论文\StO2数据\最后mat数据\hd5_for_train_npyfile"
+    train_dataset = StO2Dataset(
+        root_path,
+        train=True,
+        test_subnum=43,
+        transform=None
+    )
+
+    test_dataset = StO2Dataset(
+        root_path,
+        train=False,
+        test_subnum=43,
+        transform=None
+    )
+
+    # 验证输出
+    print("Train samples:", len(train_dataset))
+    print("Test samples:", len(test_dataset))
+    for img, label in train_dataset:
+        print("Processed image shape:", img[0].shape)  # 额头区域
+        print("Processed image shape:", img[1].shape)  # 左脸颊区域
+        print("Processed image shape:", img[2].shape)  # 右脸颊区域
+        print("Processed image' label shape:", label)  # 额头区域
+
+
