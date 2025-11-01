@@ -38,4 +38,4 @@ python main.py --config configs/default.yaml
 Example1	Accuracy	91.6%
 Example2	F1-score	90.8%
 
-### 5. 第一阶段训练好的权重地址
+📜 License / 许可证
