@@ -8,12 +8,13 @@ CUDA: 10.2, cudnn: 7.6.5 <br>
 GPU: NVIDIA GeForce RTX 2080 Ti <br>
 
 ### Getting started
+
 1. Clone this repository
 ```bash
 git clone git@github.com:Swu-wanghp/DeepStO2.git
-cd OxyRIG-Net ```
+cd OxyRIG-Net              
+### 
 2. Prepare environment
-```bash
 conda create -n env_name python=3.8
 conda activate env_name
 pip install -r requirements.txt
