@@ -1,11 +1,11 @@
 ### The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
 ### Experiment environment
-OS: Ubuntu 20.04.4 LTS
-Pyhton: 3.8
-Pytorch: 1.10.1
-CUDA: 10.2, cudnn: 7.6.5
-GPU: NVIDIA GeForce RTX 2080 Ti
+OS: Ubuntu 20.04.4 LTS <br>
+Pyhton: 3.8 <br>
+Pytorch: 1.10.1 <br>
+CUDA: 10.2, cudnn: 7.6.5 <br>
+GPU: NVIDIA GeForce RTX 2080 Ti <br>
 
 ### Getting started
 1. Clone this repository
