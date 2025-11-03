@@ -1,6 +1,7 @@
 # The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
 ### 🧩 Environment:
+  -
     | Component | Version |
     |------------|----------|
     | OS | Ubuntu 20.04.4 LTS |
