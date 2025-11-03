@@ -1,6 +1,4 @@
-# The Face of Deception: StO₂ Dataset, Pattern Analysis, and Detection Model
-# Official implementation of OxyRIG-Net — a physiology-guided region–relation graph framework
-# for facial deception detection based on tissue oxygen saturation (StO₂) imaging.
+# The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
 ### 🧩 Environment:
   - |
