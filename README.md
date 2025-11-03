@@ -2,7 +2,7 @@
 # Official implementation of OxyRIG-Net — a physiology-guided region–relation graph framework
 # for facial deception detection based on tissue oxygen saturation (StO₂) imaging.
 
-- 🧩 Environment:
+### 🧩 Environment:
   - |
     | Component | Version |
     |------------|----------|
@@ -12,8 +12,7 @@
     | CUDA | 10.2 |
     | cuDNN | 7.6.5 |
     | GPU | NVIDIA GeForce RTX 2080 Ti |
-
-- 🚀 Getting Started:
+### 🚀 Getting Started:
   - |
     **1. Clone this repository**
     ```bash
@@ -50,7 +49,7 @@
     We also provide ckpts, logs, etc. to reproduce the results in the paper.
     Please download `ckpt.tar.gz`.
 
-- 📊 Dataset Overview:
+### 📊 Dataset Overview:
   - |
     The Deception-Detection-StO₂ dataset includes three experimental paradigms with increasing stress intensity:
     1. Personal Information Description — low stress  
@@ -60,7 +59,7 @@
     All hyperspectral data were captured under calibrated halogen illumination
     to ensure uniform facial lighting and stable reflectance estimation.
 
-- 🧠 Model Overview:
+### 🧠 Model Overview:
   - |
     OxyRIG-Net adopts a two-stage “attribute first, reason later” framework:
     - Stage I: Physiology-guided regional attribution using ACCA and soft facial priors  
@@ -69,14 +68,14 @@
     This enables interpretable and robust deception detection
     through both localized oxygenation variation and cross-regional coupling.
 
-- 📬 Contact:
+### 📬 Contact:
   - |
     If you have any questions or encounter any issues,
     please feel free to open an issue or contact:
     - Hanpu Wang — wanghp568@gmail.com  
     - Tong Chen — ctong@swu.edu.cn / chentong@psych.ac.cn  
 
-- 🙏 Acknowledgement:
+### 🙏 Acknowledgement:
   - |
     This research was supported by the Key Laboratory of Cognitive Neuroscience,
     Southwest University, and the Institute of Psychology, Chinese Academy of Sciences.
