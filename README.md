@@ -1,18 +1,31 @@
-### The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
+# OxyRIG-Net: Physiology-Guided Region–Relation Graph Network for Deception Detection
 
-### Experiment environment
-OS: Ubuntu 20.04.4 LTS <br>
-Pyhton: 3.8 <br>
-Pytorch: 1.10.1 <br>
-CUDA: 10.2, cudnn: 7.6.5 <br>
-GPU: NVIDIA GeForce RTX 2080 Ti <br>
+This repository contains the official implementation of **OxyRIG-Net**,  
+a physiology-guided region–relation graph framework for facial deception detection  
+based on **tissue oxygen saturation (StO₂)** imaging.
 
-### Getting started
+---
 
-1. Clone this repository
+## 🧩 Environment
+
+| Component | Version |
+|------------|----------|
+| OS | Ubuntu 20.04.4 LTS |
+| Python | 3.8 |
+| PyTorch | 1.10.1 |
+| CUDA | 10.2 |
+| cuDNN | 7.6.5 |
+| GPU | NVIDIA GeForce RTX 2080 Ti |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone this repository
 ```bash
 git clone git@github.com:Swu-wanghp/DeepStO2.git
 cd OxyRIG-Net
+
         
 conda create -n env_name python=3.8
 conda activate env_name
