@@ -11,7 +11,7 @@ GPU: NVIDIA GeForce RTX 2080 Ti <br>
 1. Clone this repository
 ```bash
 git clone git@github.com:Swu-wanghp/DeepStO2.git
-cd OxyRIG-Net
+cd OxyRIG-Net ```
 2. Prepare environment
 ```bash
 conda create -n env_name python=3.8
