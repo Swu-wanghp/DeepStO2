@@ -1,7 +1,6 @@
 # The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
 ### 🧩 Environment:
-  - |
     | Component | Version |
     |------------|----------|
     | OS | Ubuntu 20.04.4 LTS |
@@ -11,7 +10,7 @@
     | cuDNN | 7.6.5 |
     | GPU | NVIDIA GeForce RTX 2080 Ti |
 ### 🚀 Getting Started:
-  - |
+  - 
     **1. Clone this repository**
     ```bash
     git clone git@github.com:Swu-wanghp/DeepStO2.git
