@@ -22,11 +22,11 @@ based on **tissue oxygen saturation (StO₂)** imaging.
 ## 🚀 Getting Started
 
 ### 1. Clone this repository
-bash
+```bash
 git clone git@github.com:Swu-wanghp/DeepStO2.git
 cd OxyRIG-Net
 
-2. Prepare environment        
+    
 conda create -n env_name python=3.8
 conda activate env_name
 pip install -r requirements.txt
