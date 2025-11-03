@@ -41,9 +41,20 @@ The StO2-Deception-Detection dataset is publicly available for academic research
 $ tar -xf features.tar.gz -C dir_to_save_feature
 ```
 ### 5. Training
-``` python ./train.py
+```bash
+python ./train.py
 ```
 ### 6. Inference
-``` python ./test.py
+```
+python ./test.py
+```
 We also provide ckpts, logs, etc. to reproduce the results in the paper, please download ckpt.tar.gz.
 You may open an issue or email me at wanghp568@gmail.com if you have any inquiries or issues.
+### Concat
+If you have any questions or encounter any issues,
+please feel free to open an issue or contact wanghp568@gmail.com
+
+# Acknowledgement
+This research was supported by the Key Laboratory of Cognitive Neuroscience,
+Southwest University, and the Institute of Psychology, Chinese Academy of Sciences.
+
