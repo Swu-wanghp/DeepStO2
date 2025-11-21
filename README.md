@@ -47,8 +47,8 @@ It includes dataset visualization tools, model architecture, training/testing sc
       --test_batchsize 1
 
     ```
-    We also provide ckpts, logs, etc. to reproduce the results in the paper.
-    Please download `ckpt.tar.gz`.
+    We also provide the trained .pth files to reproduce the results in the paper.
+    These file can be download from https://pan.baidu.com/s/1eW-QC5ip-bq6dmJwKYHXSA and the password is faxw.
 
 ### 📊 Dataset Overview:
   - |
