@@ -3,18 +3,10 @@
 This project provides the full implementation of PhyRIG-Net, a physiology-guided region–relation graph framework for deception detection using facial tissue oxygen saturation (StO2) imaging.
 It includes dataset visualization tools, model architecture, training/testing scripts, and all components needed to reproduce the experimental results.
 
-### 📊 Some visualizations from the StO2 dataset:
-![Figure 1. Overview of the StO2 deception-detection dataset and visualization examples.](fig/basic_image.png)
 
-**Figure 1.** StO2 patterns for six subjects across experimental conditions. The pseudo-color mappings illustrate relative oxygenation. Warm tones indicate high
-blood oxygen levels, whereas cool tones indicate the opposite.
 
 ### 🧩 The Proposed PhyRIG-Net structure:
-![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
 
-**Figure 1.** Overall framework of PhyRIG-Net. Stage I performs physiology-guided regional attribution using an ACCA-enhanced ResNet-18 with Grad-CAM,
-constrained by a predefined facial prior of five ROIs (1–5: forehead, nose, left cheek, right cheek, and chin). Stage II conducts multi-relation reasoning based
-on spatial adjacency and functional co-activation, generating the final deception prediction through permutation-invariant graph pooling.
 
 ### 🚀 Getting Started:
   - 
@@ -75,17 +67,18 @@ on spatial adjacency and functional co-activation, generating the final deceptio
     2. Factual Statement — moderate stress  
     3. Mock Crime — high stress  
 
-    All hyperspectral data were captured under calibrated halogen illumination
-    to ensure uniform facial lighting and stable reflectance estimation.
+    ![Figure 1. Overview of the StO2 deception-detection dataset and visualization examples.](fig/basic_image.png)
+
+    **Figure 1.** StO2 patterns for six subjects across experimental conditions. The pseudo-color mappings illustrate relative oxygenation. Warm tones indicate high
+    blood oxygen levels, whereas cool tones indicate the opposite.
 
 ### 🧠 Model Overview:
   - |
-    OxyRIG-Net adopts a two-stage “attribute first, reason later” framework:
-    - Stage I: Physiology-guided regional attribution using ACCA and soft facial priors  
-    - Stage II: Multi-relation graph reasoning over ROIs (spatial, bilateral, functional)  
+    ![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
 
-    This enables interpretable and robust deception detection
-    through both localized oxygenation variation and cross-regional coupling.
+    **Figure 1.** Overall framework of PhyRIG-Net. Stage I performs physiology-guided regional attribution using an ACCA-enhanced ResNet-18 with Grad-CAM,
+    constrained by a predefined facial prior of five ROIs (1–5: forehead, nose, left cheek, right cheek, and chin). Stage II conducts multi-relation reasoning based
+    on spatial adjacency and functional co-activation, generating the final deception prediction through permutation-invariant graph pooling.
 
 ### 📬 Contact:
   - |
