@@ -7,7 +7,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
   - 
     **1. Clone this repository**
     ```bash
-    git clone git@github.com:Swu-wanghp/DeepStO2.git
+    git clone https://github.com/Swu-wanghp/DeepStO2.git
     cd OxyRIG-Net
     ```
 
