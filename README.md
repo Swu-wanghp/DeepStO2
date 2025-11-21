@@ -18,17 +18,12 @@ It includes dataset visualization tools, model architecture, training/testing sc
     pip install -r requirements.txt
     ```
 
-    **3. Upload StO2 data**
-    The StO₂-Deception-Detection dataset is publicly available for academic research.
+    **3. Download StO2 data**
+    The StO2-Deception-Detection dataset is publicly available for academic research.
     Researchers can obtain access by contacting the corresponding author via email
     (ctong@swu.edu.cn; chentong@psych.ac.cn) and signing a License Agreement.
 
-    **4. Download pretrained features**
-    ```bash
-    tar -xf features.tar.gz -C dir_to_save_feature
-    ```
-
-    **5. Training**
+    **4. Training**
     ```bash
     python train.py \
       --root_path /root/data/hd5_for_train \
@@ -41,7 +36,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
       --test_batchsize 1
     ```
 
-    **6. Inference**
+    **5. Inference**
     ```bash
     python test.py \
       --root_path /root/data/hd5_for_train \
