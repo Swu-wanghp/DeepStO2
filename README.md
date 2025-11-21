@@ -1,22 +1,12 @@
 # The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
-### 🧩 Environment:
-  -
-    | Component | Version |
-    |------------|----------|
-    | OS | Ubuntu 20.04.4 LTS |
-    | Python | 3.8 |
-    | PyTorch | 1.10.1 |
-    | CUDA | 10.2 |
-    | cuDNN | 7.6.5 |
-    | GPU | NVIDIA GeForce RTX 2080 Ti |
 ### 📊 Some visualizations from the StO2 dataset:
 ![Figure 1. Overview of the StO2 deception-detection dataset and visualization examples.](fig/basic_image.png)
 
 **Figure 1.** StO2 patterns for six subjects across experimental conditions. The pseudo-color mappings illustrate relative oxygenation. Warm tones indicate high
 blood oxygen levels, whereas cool tones indicate the opposite.
 
-### 🧠 The Proposed PhyRIG-Net structure:
+### 🧩 The Proposed PhyRIG-Net structure:
 ![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
 
 **Figure 1.** Overall framework of PhyRIG-Net. Stage I performs physiology-guided regional attribution using an ACCA-enhanced ResNet-18 with Grad-CAM,
