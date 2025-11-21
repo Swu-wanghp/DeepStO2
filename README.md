@@ -43,7 +43,15 @@ on spatial adjacency and functional co-activation, generating the final deceptio
 
     **5. Training**
     ```bash
-    python train.py
+    python train.py \
+      --root_path /root/data/StO2/train \
+      --adj_path /root/projects/DeepStO2/model/adj.npy \
+      --weightFilePath /root/projects/DeepStO2/region_results.json \
+      --output /root/projects/DeepStO2/results \
+      --train_epoch 200 \
+      --lr 0.001 \
+      --train_batchsize 32 \
+      --test_batchsize 1
     ```
 
     **6. Inference**
