@@ -31,7 +31,7 @@ on spatial adjacency and functional co-activation, generating the final deceptio
     pip install -r requirements.txt
     ```
 
-    **3. Upload StO₂ data**
+    **3. Upload StO2 data**
     The StO₂-Deception-Detection dataset is publicly available for academic research.
     Researchers can obtain access by contacting the corresponding author via email
     (ctong@swu.edu.cn; chentong@psych.ac.cn) and signing a License Agreement.
@@ -44,10 +44,10 @@ on spatial adjacency and functional co-activation, generating the final deceptio
     **5. Training**
     ```bash
     python train.py \
-      --root_path /root/data/StO2/train \
-      --adj_path /root/projects/DeepStO2/model/adj.npy \
-      --weightFilePath /root/projects/DeepStO2/region_results.json \
-      --output /root/projects/DeepStO2/results \
+      --root_path /root/data/hd5_for_train \
+      --adj_path /root/DeepStO2/model/adj.npy \
+      --weightFilePath /root/DeepStO2/region_results.json \
+      --output /root/DeepStO2/tools/results \
       --train_epoch 200 \
       --lr 0.001 \
       --train_batchsize 32 \
@@ -56,7 +56,14 @@ on spatial adjacency and functional co-activation, generating the final deceptio
 
     **6. Inference**
     ```bash
-    python test.py
+    python test.py \
+      --root_path /root/data/hd5_for_train \
+      --adj_path /root/DeepStO2/model/adj.npy \
+      --weightFilePath /root/DeepStO2/region_results.json \
+      --output /root/DeepStO2/tools/results \
+      --sub_num 48 \
+      --test_batchsize 1
+
     ```
     We also provide ckpts, logs, etc. to reproduce the results in the paper.
     Please download `ckpt.tar.gz`.
