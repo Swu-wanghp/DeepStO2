@@ -26,7 +26,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
     **4. Training**
     ```bash
     python train.py \
-      --root_path /root/data/hd5_for_train \
+      --root_path /root/data \
       --adj_path /root/DeepStO2/model/adj.npy \
       --weightFilePath /root/DeepStO2/region_results.json \
       --output /root/DeepStO2/tools/results \
@@ -39,7 +39,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
     **5. Inference**
     ```bash
     python test.py \
-      --root_path /root/data/hd5_for_train \
+      --root_path /root/data \
       --adj_path /root/DeepStO2/model/adj.npy \
       --weightFilePath /root/DeepStO2/region_results.json \
       --output /root/DeepStO2/tools/results \
