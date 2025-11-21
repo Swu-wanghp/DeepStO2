@@ -1,5 +1,8 @@
 # The Face of Deception: StO2 Dataset, Pattern Analysis, and Detection Model
 
+This project provides the full implementation of PhyRIG-Net, a physiology-guided region–relation graph framework for deception detection using facial tissue oxygen saturation (StO2) imaging.
+It includes dataset visualization tools, model architecture, training/testing scripts, and all components needed to reproduce the experimental results.
+
 ### 📊 Some visualizations from the StO2 dataset:
 ![Figure 1. Overview of the StO2 deception-detection dataset and visualization examples.](fig/basic_image.png)
 
