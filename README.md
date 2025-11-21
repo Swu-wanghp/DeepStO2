@@ -74,7 +74,8 @@ It includes dataset visualization tools, model architecture, training/testing sc
 
 ### 🧠 Model Overview:
   - |
-    ![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
+    The overall framework of PhyRIG-Net.
+    ![Figure 1. Overview of the StO2 deception-detection dataset and visualization examples.](fig/architecture.png)
 
     **Figure 1.** Overall framework of PhyRIG-Net. Stage I performs physiology-guided regional attribution using an ACCA-enhanced ResNet-18 with Grad-CAM,
     constrained by a predefined facial prior of five ROIs (1–5: forehead, nose, left cheek, right cheek, and chin). Stage II conducts multi-relation reasoning based
@@ -84,7 +85,6 @@ It includes dataset visualization tools, model architecture, training/testing sc
   - |
     If you have any questions or encounter any issues,
     please feel free to open an issue or contact:
-    - Hanpu Wang — wanghp568@gmail.com  
     - Tong Chen — ctong@swu.edu.cn / chentong@psych.ac.cn  
 
 ### 🙏 Acknowledgement:
