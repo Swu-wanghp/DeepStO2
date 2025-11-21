@@ -19,8 +19,9 @@ blood oxygen levels, whereas cool tones indicate the opposite.
 ### 🧠 The Proposed PhyRIG-Net structure:
 ![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
 
-**Figure 1.** Overview of the StO₂-based deception detection dataset.  
-Each participant completes multiple **structured tasks** (e.g., personal information description, factual statements, and mock-crime scenarios) under controlled illumination and fixed camera–subject geometry. For every trial, a **baseline segment** and a **task segment** are recorded and converted into spatial StO₂ maps.
+**Figure 1.** Overall framework of PhyRIG-Net. Stage I performs physiology-guided regional attribution using an ACCA-enhanced ResNet-18 with Grad-CAM,
+constrained by a predefined facial prior of five ROIs (1–5: forehead, nose, left cheek, right cheek, and chin). Stage II conducts multi-relation reasoning based
+on spatial adjacency and functional co-activation, generating the final deception prediction through permutation-invariant graph pooling.
 
 ### 🚀 Getting Started:
   - 
