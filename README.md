@@ -11,13 +11,13 @@
     | cuDNN | 7.6.5 |
     | GPU | NVIDIA GeForce RTX 2080 Ti |
 ### 📊 The description of StO2 Dataset and it visualization:
-![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](figs/fig1_sto2_dataset_overview.png)
+![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/basic_image.png)
 
 **Figure 1.** Overview of the StO₂-based deception detection dataset.  
 Each participant completes multiple **structured tasks** (e.g., personal information description, factual statements, and mock-crime scenarios) under controlled illumination and fixed camera–subject geometry. For every trial, a **baseline segment** and a **task segment** are recorded and converted into spatial StO₂ maps.
 
 ### 🧠 The Proposed PhyRIG-Net structure:
-![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](figs/fig1_sto2_dataset_overview.png)
+![Figure 1. Overview of the StO₂ deception-detection dataset and visualization examples.](fig/architecture.png)
 
 **Figure 1.** Overview of the StO₂-based deception detection dataset.  
 Each participant completes multiple **structured tasks** (e.g., personal information description, factual statements, and mock-crime scenarios) under controlled illumination and fixed camera–subject geometry. For every trial, a **baseline segment** and a **task segment** are recorded and converted into spatial StO₂ maps.
