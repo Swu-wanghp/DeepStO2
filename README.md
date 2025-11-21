@@ -52,7 +52,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
 
 ### 📊 Dataset Overview:
   - |
-    The Deception-Detection-StO₂ dataset includes three experimental paradigms with increasing stress intensity:
+    The Deception-Detection-StO2 dataset includes three experimental paradigms with increasing stress intensity:
     1. Personal Information Description — low stress  
     2. Factual Statement — moderate stress  
     3. Mock Crime — high stress  
