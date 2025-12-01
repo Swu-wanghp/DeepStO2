@@ -48,7 +48,7 @@ It includes dataset visualization tools, model architecture, training/testing sc
 
     ```
     We also provide the trained .pth files to reproduce the results in the paper.
-    These file can be download from https://pan.baidu.com/s/1eW-QC5ip-bq6dmJwKYHXSA and the password is faxw.
+    These file can be download from https://pan.baidu.com/s/1auFEZS6csHo3Hl763PWq3g and the password is sdhx.
 
 ### 📊 Dataset Overview:
   - |
